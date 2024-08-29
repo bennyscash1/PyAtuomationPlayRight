@@ -6,15 +6,15 @@ from WebTest.PageObject.base_pages import BasePages
 class LoginPage(BasePages):
 
     def __init__(self, page: Page):
-        super().__init__(page)
+        self.page = page
         self.m_user_name_input_field = "//input[@id='username']"
         self.m_password_input_field = "//input[@id='password']"
         self.m_submit_button = "//button[@id='submit']"
         self.m_home_page_logo_by = "//h1[normalize-space()='Logged In Successfully']"
 
-    def open_page(self, navigate_to_logon_screen=True, url=None):
+    async def open_page(self, navigate_to_logon_screen=True, url: str = None):
         if navigate_to_logon_screen and url is not None:
-            self.page.goto(url)
+            await self.page.goto(self, url)  # Correct method to navigate to the URL
         return self
 
     def enter_email(self, email):

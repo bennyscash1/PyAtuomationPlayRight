@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError
 import unittest
 
-class WeblocatoreFunction(unittest.TestCase):
+class WeblocatoreFunction():
     def __init__(self, page: Page):
         super().__init__()
         self.page = page
@@ -11,9 +11,10 @@ class WeblocatoreFunction(unittest.TestCase):
         try:
             self.page.is_visible(selector, timeout=self.time_out_in_seconds)
             return True
-        except PlaywrightTimeoutError:
-            print(f"Element {selector} click failed within {self.time_out_in_seconds / 1000} seconds")
+        except TimeoutError:
+            print(f"Element '{selector}' not found within {self.time_out_in_milliseconds / 1000} seconds")
             return False
+
 
     def wait_for_element_visibility(self, selector):
         element_visible = self.is_element_found(selector)
