@@ -2,23 +2,25 @@ from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError
 import unittest
 
 class WeblocatoreFunction():
+    DEFAULT_TIMEOUT_IN_SECONDS = 20.0
     def __init__(self, page: Page):
-        super().__init__()
         self.page = page
-        self.time_out_in_seconds = 6000  # Timeout in milliseconds
 
     def is_element_found(self, selector: str) -> bool:
         try:
-            self.page.is_visible(selector, timeout=self.time_out_in_seconds)
-            return True
+            if self.page.is_visible(selector, timeout=self.DEFAULT_TIMEOUT_IN_SECONDS):
+                return True
+            else:
+                print(f"Element '{selector}' found in the DOM but not visible.")
+                return False
         except TimeoutError:
-            print(f"Element '{selector}' not found within {self.time_out_in_milliseconds / 1000} seconds")
+            print(f"Element '{selector}' not found within {self.DEFAULT_TIMEOUT_IN_SECONDS } seconds")
             return False
 
 
     def wait_for_element_visibility(self, selector):
         element_visible = self.is_element_found(selector)
-        element_details = f"Element {selector} search failed within {self.time_out_in_seconds / 1000} seconds"
+        element_details = f"Element {selector} search failed within {self.DEFAULT_TIMEOUT_IN_SECONDS } seconds"
         self.assertTrue(element_visible, element_details)
 
     def click(self, selector: str):
@@ -26,15 +28,16 @@ class WeblocatoreFunction():
         if element_visible:
             self.page.click(selector)
         else:
-            element_details = f"Element {selector} click failed within {self.time_out_in_seconds / 1000} seconds"
+            element_details = f"Element {selector} click failed within {self.DEFAULT_TIMEOUT_IN_SECONDS } seconds"
             self.assertTrue(element_visible, element_details)
 
     def fill_text(self, selector: str, text):
+      #  self.page.fill(selector, text)
         element_visible = self.is_element_found(selector)
         if element_visible:
             self.page.fill(selector, text)
         else:
-            element_details = f"Element {selector} click failed within {self.time_out_in_seconds / 1000} seconds"
+            element_details = f"Element {selector} click failed within {self.DEFAULT_TIMEOUT_IN_SECONDS} seconds"
             self.assertTrue(element_visible, element_details)
 
     def switch_to_frame(self, frame_selector):
