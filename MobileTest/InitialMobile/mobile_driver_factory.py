@@ -21,7 +21,7 @@ class MobileDriverFactory:
         options.set_capability('deviceName', 'bennys9')
         options.set_capability('appPackage', appPackage)
         options.set_capability('appActivity', appActivity)
-        options.set_capability('udid', '43bd5a1b')
+        options.set_capability('udid', 'R5CT4401Q1P')
         return options
     def init_appium_driver(self):
         options = self.create_appium_options()

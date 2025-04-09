@@ -1,5 +1,4 @@
 import pytest
-import pytest
 import sys
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,11 +19,7 @@ class MobilaBasicTest(MobileDriverFactory):
     def test_mobile_basic_test(self):
         mobile_login_flow = MobileLoginFlow(self.appium_driver)
 
-        mobile_login_flow.mobile_open_account_frame()
-
-        # Init home page popups
-        is_close_icon_display = mobile_login_flow.is_close_icon_display()
-        assert is_close_icon_display, "Close icon are not displayed"
+        mobile_login_flow.mobile_click_on_calculator()
 
 def test_contact():
     run_mobile= MobilaBasicTest()
