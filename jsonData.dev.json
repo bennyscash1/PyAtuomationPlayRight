@@ -13,8 +13,8 @@
   "Mobile": {
     "ContactName": "בני",
     "ContactNumber": "0584102220",
-    "appPackage": "com.google.android.contacts",
-    "appActivity": "com.android.contacts.activities.PeopleActivity"
+    "appPackage": "com.google.android.calculator",
+    "appActivity": "com.android.calculator2.Calculator"
   },
   "Common": {
     "Enviorment": "dev"
