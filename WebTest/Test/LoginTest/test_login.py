@@ -32,7 +32,6 @@ class TestLoginWeb(WebDriverFactory):
 
         assert login_flow.is_home_page_open()
        
-
 @pytest.mark.webtest
 def test_login():
         run_test = TestLoginWeb()
