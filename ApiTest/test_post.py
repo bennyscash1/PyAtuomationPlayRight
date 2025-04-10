@@ -1,6 +1,9 @@
 import requests
-import GetData
-from GetData import VarData, data
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import project_enviorment.GetData as GetData
+from project_enviorment.GetData import VarData, data
 class RegisterInputDTO:
     def __init__(self, email, password):
         self.data = {"email": email, "password": password}

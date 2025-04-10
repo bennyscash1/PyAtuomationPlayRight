@@ -1,6 +1,9 @@
 import json
 import os
 from enum import Enum
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 class VarData(Enum):
     URL1 = "URL1"
