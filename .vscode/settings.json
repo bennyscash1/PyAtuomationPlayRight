@@ -8,5 +8,8 @@
         "appium",
         "Automator",
         "Mobila"
+    ],
+    "python.analysis.extraPaths": [
+        "./project_enviorment"
     ]
 }

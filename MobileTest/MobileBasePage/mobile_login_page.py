@@ -4,13 +4,10 @@ from MobileTest.MobileBasePage.mobile_base_pages import MobileBasePages
 class MobileLoginPage(MobileBasePages):
     def __init__(self, driver):
         super().__init__(driver)
-        self.m_account_icon_by = ("xpath", "//android.widget.ImageView[@resource-id='com.google.android.contacts:id/og_apd_internal_image_view']")
-        self.m_close_icon_by = ("id", "com.google.android.contacts:id/og_header_close_button")
+        #self.m_account_icon_by = ("xpath", "//android.widget.ImageButton[@content-desc=\"5\"]")
 
-    def click_on_account_icon(self):
-        self.mobile_click_element(self.m_account_icon_by)
+    def click_number_on_calculator(self, calculator_number):
+        xpath = ( "xpath", f"//android.widget.ImageButton[@content-desc=\"{calculator_number}\"]" )
+        self.mobile_click_element(xpath)
         return self
 
-    def is_close_icon_display(self):
-        self.wait_for_element(self.m_close_icon_by)
-        return True

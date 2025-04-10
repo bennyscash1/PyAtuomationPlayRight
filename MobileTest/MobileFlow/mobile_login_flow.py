@@ -6,9 +6,6 @@ class MobileLoginFlow(MobileBaseFlow):
         super().__init__(driver)
         self.mobile_login_page_object = MobileLoginPage(driver)
 
-    def mobile_open_account_frame(self):
-        self.mobile_login_page_object.click_on_account_icon()
+    def mobile_click_on_calculator(self, calculator_number):
+        self.mobile_login_page_object.click_number_on_calculator(calculator_number)
         return self
-
-    def is_close_icon_display(self):
-        return self.mobile_login_page_object.is_close_icon_display()

@@ -6,8 +6,8 @@ root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 # Add the root directory to the Python path
 sys.path.append(root_dir)
 
-import GetData
-from GetData import VarData
+import project_enviorment.GetData as GetData
+from project_enviorment.GetData import VarData
 from playwright.sync_api import Page
 from WebTest.WebInfra.web_driver_factory import WebDriverFactory
 from WebTest.Flows.login_flow import LoginFlow
