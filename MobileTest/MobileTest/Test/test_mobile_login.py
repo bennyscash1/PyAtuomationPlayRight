@@ -20,6 +20,7 @@ class MobilaBasicTest(MobileDriverFactory):
         mobile_login_flow = MobileLoginFlow(self.appium_driver)
         mobile_login_flow.mobile_click_on_calculator(calculator_number = "2")
 
+@pytest.mark.webtest
 def test_contact():
     run_mobile= MobilaBasicTest()    
     run_mobile.test_mobile_basic_test()
